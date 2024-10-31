@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A responsive Compute BMI Calculator with both US and Metric units and a pie chart showing BMI categories.">
+  <title>Compute BMI Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+<style>
+body {
+  font-family: "Merriweather", sans-serif;
+}
+</style>
+  
+</head>
+<body>
+
+  <header class="text-center mb-4">
+    <h1>Compute BMI Calculator</h1>
+  </header>
+
+  <div class="calculator-container">
+    <!-- Unit Toggle -->
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-primary active">
+        <input type="radio" name="unit" id="us-unit" checked> US Units
+      </label>
+      <label class="btn btn-primary">
+        <input type="radio" name="unit" id="metric-unit"> Metric Units
+      </label>
+    </div>
+
+    <!-- Input Fields -->
+    <div id="us-inputs" class="unit-input mt-3">
+      <div class="form-group">
+        <input type="number" id="age-us" class="form-control" placeholder="Age" required>
+      </div>
+      <div class="form-group">
+        <select id="gender-us" class="form-control">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="number" id="height-feet" class="form-control" placeholder="Height (feet)" required>
+      </div>
+      <div class="form-group">
+        <input type="number" id="height-inches" class="form-control" placeholder="Height (inches)">
+      </div>
+      <div class="form-group">
+        <input type="number" id="weight-lbs" class="form-control" placeholder="Weight (lbs)" required>
+      </div>
+    </div>
+
+    <div id="metric-inputs" class="unit-input mt-3 d-none">
+      <div class="form-group">
+        <input type="number" id="age-metric" class="form-control" placeholder="Age" required>
+      </div>
+      <div class="form-group">
+        <select id="gender-metric" class="form-control">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <input type="number" id="height-cm" class="form-control" placeholder="Height (cm)" required>
+      </div>
+      <div class="form-group">
+        <input type="number" id="weight-kg" class="form-control" placeholder="Weight (kg)" required>
+      </div>
+    </div>
+
+    <button onclick="calculateBMI()" class="btn btn-success mt-3">Compute BMI</button>
+    <button onclick="clearInputs()" class="btn btn-secondary mt-3">Clear</button>
+
+    <!-- Result -->
+    <div class="result mt-4">
+  <h2 id="bmi-result">BMI: ?</h2>
+  <p id="health-status" class="font-weight-bold"></p> <!-- Health status message -->
+  <div class="chart-container">
+    <canvas id="bmiChart"></canvas>
+  </div>
+</div>
+
+
+  <footer class="text-center mt-4">
+    <p>&copy; 2024 Compute BMI Calculator Tool</p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+  
+  
+</body>
+</html>
